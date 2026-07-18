@@ -188,8 +188,8 @@ void main() {
       await _pumpDashboardScreen(tester, scrollDown: true);
 
       expect(_dashboardKey('btn_add_activity'), findsOneWidget);
-      expect(_dashboardKey('btn_view_history'), findsOneWidget);
-      expect(_dashboardKey('btn_edit_profile'), findsOneWidget);
+      expect(_dashboardKey('btn_history'), findsOneWidget);
+      expect(_dashboardKey('btn_profile'), findsOneWidget);
     });
 
     testWidgets('tapping history button navigates to history screen', (
@@ -197,7 +197,7 @@ void main() {
     ) async {
       await _pumpDashboardScreen(tester, scrollDown: true);
 
-      await tester.tap(_dashboardKey('btn_view_history'));
+      await tester.tap(_dashboardKey('btn_history'));
       await tester.pumpAndSettle();
 
       expect(find.text('History Screen'), findsOneWidget);
@@ -208,7 +208,7 @@ void main() {
     ) async {
       await _pumpDashboardScreen(tester, scrollDown: true);
 
-      await tester.tap(_dashboardKey('btn_edit_profile'));
+      await tester.tap(_dashboardKey('btn_profile'));
       await tester.pumpAndSettle();
 
       expect(find.text('Profile Screen'), findsOneWidget);

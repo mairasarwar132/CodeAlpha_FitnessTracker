@@ -6,12 +6,15 @@ class AppColors {
   AppColors._();
 
   // ── Primary Palette ──
-  static const primary = Color(0xFF1E293B); // Dark slate
-  static const accent = Color(0xFF00D4AA); // Vibrant mint
-  static const secondary = Color(0xFF3B82F6); // Bright blue
-  static const background = Color(0xFFF8FAFC); // Cool light grey
-  static const surface = Color(0xFFFFFFFF); // White cards
-  static const darkBackground = Color(0xFF0F172A); // Deep navy
+  static const primary = Color(0xFF00C49F); // Premium mint
+  static const secondary = Color(0xFF0EA5E9); // Bright blue
+  static const accent = Color(0xFF00C49F); // Primary accent
+  static const accentDark = Color(0xFF059E83);
+  static const background = Color(0xFFF8FAFC); // Soft background
+  static const surface = Color(0xFFFFFFFF); // Pure white cards
+  static const darkSurface = Color(0xFF1E293B); // Dark card sections
+  static const textPrimary = Color(0xFF111827);
+  static const textSecondary = Color(0xFF6B7280);
 
   // ── Semantic Colors ──
   static const success = Color(0xFF22C55E);
@@ -20,11 +23,9 @@ class AppColors {
 
   // ── Accent Variations ──
   static const accentLight = Color(0xFF33DFBB);
-  static const accentDark = Color(0xFF00B894);
+  static const accentMuted = Color(0xFF7DD3FC);
 
   // ── Neutral Tones ──
-  static const textPrimary = Color(0xFF1E293B);
-  static const textSecondary = Color(0xFF64748B);
   static const border = Color(0xFFE2E8F0);
   static const divider = Color(0xFFF1F5F9);
 

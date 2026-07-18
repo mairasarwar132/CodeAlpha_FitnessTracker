@@ -11,6 +11,7 @@ class DashboardStats {
     this.totalActiveMinutes = 0,
     this.activities = const [],
     this.dailyStepGoal = 10000,
+    this.userName = '',
   });
 
   final int totalSteps;
@@ -19,6 +20,7 @@ class DashboardStats {
   final int totalActiveMinutes;
   final List<ActivitiesTableData> activities;
   final int dailyStepGoal;
+  final String userName;
 
   double get goalProgress =>
       dailyStepGoal > 0 ? (totalSteps / dailyStepGoal).clamp(0.0, 1.0) : 0.0;
@@ -35,6 +37,7 @@ class DashboardStats {
     int? totalActiveMinutes,
     List<ActivitiesTableData>? activities,
     int? dailyStepGoal,
+    String? userName,
   }) {
     return DashboardStats(
       totalSteps: totalSteps ?? this.totalSteps,
@@ -43,6 +46,7 @@ class DashboardStats {
       totalActiveMinutes: totalActiveMinutes ?? this.totalActiveMinutes,
       activities: activities ?? this.activities,
       dailyStepGoal: dailyStepGoal ?? this.dailyStepGoal,
+      userName: userName ?? this.userName,
     );
   }
 }
@@ -51,8 +55,9 @@ class DashboardStats {
 ///
 /// Uses [FutureProvider.autoDispose] so data refreshes each time the dashboard
 /// is shown (guards against stale data after activity logging).
-final dashboardStatsProvider =
-    FutureProvider.autoDispose<DashboardStats>((ref) async {
+final dashboardStatsProvider = FutureProvider.autoDispose<DashboardStats>((
+  ref,
+) async {
   final activityRepo = ref.watch(activityRepositoryProvider);
   final profileRepo = ref.watch(profileRepositoryProvider);
 
@@ -70,6 +75,7 @@ final dashboardStatsProvider =
   final profile = results[1] as UserProfileTableData?;
 
   final dailyStepGoal = profile?.dailyStepGoal ?? 10000;
+  final userName = profile?.name ?? '';
 
   int totalSteps = 0;
   int totalCalories = 0;
@@ -91,5 +97,6 @@ final dashboardStatsProvider =
     totalActiveMinutes: totalActiveMinutes,
     activities: activities,
     dailyStepGoal: dailyStepGoal,
+    userName: userName,
   );
 });

@@ -37,7 +37,7 @@ class GoalProgressCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: AppColors.primary.withAlpha(50),
+              color: AppColors.primary.withValues(alpha: 0.2),
               blurRadius: 24,
               offset: const Offset(0, 8),
             ),
@@ -60,7 +60,7 @@ class GoalProgressCard extends StatelessWidget {
                       child: CircularProgressIndicator(
                         value: progress,
                         strokeWidth: 8,
-                        backgroundColor: AppColors.surface.withAlpha(30),
+                        backgroundColor: AppColors.surface.withValues(alpha: 0.12),
                         valueColor: AlwaysStoppedAnimation<Color>(progressColor),
                         strokeCap: StrokeCap.round,
                       ),
@@ -90,7 +90,7 @@ class GoalProgressCard extends StatelessWidget {
                     Text(
                       AppStrings.dashboardDailyGoal,
                       style: theme.textTheme.bodySmall?.copyWith(
-                        color: AppColors.surface.withAlpha(180),
+                        color: AppColors.surface.withValues(alpha: 0.7),
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.5,
                       ),
@@ -111,7 +111,7 @@ class GoalProgressCard extends StatelessWidget {
                     Text(
                       'of ${_formatNumber(goalSteps)} steps',
                       style: theme.textTheme.bodySmall?.copyWith(
-                        color: AppColors.surface.withAlpha(150),
+                        color: AppColors.surface.withValues(alpha: 0.6),
                       ),
                     ),
                     const SizedBox(height: 6),
@@ -152,9 +152,9 @@ class _GoalBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: AppColors.success.withAlpha(40),
+        color: AppColors.success.withValues(alpha: 0.16),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.success.withAlpha(100)),
+        border: Border.all(color: AppColors.success.withValues(alpha: 0.4)),
       ),
       child: Text(
         label,

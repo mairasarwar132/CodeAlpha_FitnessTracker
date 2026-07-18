@@ -36,7 +36,7 @@ class OnboardingPageWidget extends StatelessWidget {
                 width: iconSize * 1.3,
                 height: iconSize * 1.3,
                 decoration: BoxDecoration(
-                  color: theme.colorScheme.primary.withAlpha(25),
+                  color: theme.colorScheme.primary.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: Center(
@@ -63,7 +63,7 @@ class OnboardingPageWidget extends StatelessWidget {
                 model.subtitle,
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodyLarge?.copyWith(
-                  color: theme.colorScheme.onSurface.withAlpha(160),
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.63),
                   height: 1.4,
                 ),
               ),

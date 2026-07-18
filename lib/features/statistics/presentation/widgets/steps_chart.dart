@@ -25,7 +25,7 @@ class StepsChart extends StatelessWidget {
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withAlpha(12),
+            color: AppColors.primary.withValues(alpha: 0.05),
             blurRadius: 16,
             offset: const Offset(0, 4),
           ),
@@ -62,8 +62,8 @@ class StepsChart extends StatelessWidget {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            AppColors.accent.withAlpha(50),
-                            AppColors.accent.withAlpha(5),
+                            AppColors.accent.withValues(alpha: 0.2),
+                            AppColors.accent.withValues(alpha: 0.02),
                           ],
                         ),
                       ),

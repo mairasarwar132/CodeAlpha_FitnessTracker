@@ -74,14 +74,14 @@ class ActivityHistoryPage extends ConsumerWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: DropdownButtonFormField<String>(
+                          child: DropdownButtonFormField<String?>(
                             key: const Key('activity_filter'),
                             initialValue: selectedFilter,
                             decoration: const InputDecoration(
                               labelText: 'Filter by type',
                             ),
                             items: [
-                              const DropdownMenuItem(
+                              const DropdownMenuItem<String?>(
                                 value: null,
                                 child: Text('All'),
                               ),
@@ -95,7 +95,7 @@ class ActivityHistoryPage extends ConsumerWidget {
                                 'Hiking',
                                 'Other',
                               ].map(
-                                (type) => DropdownMenuItem(
+                                (type) => DropdownMenuItem<String?>(
                                   value: type,
                                   child: Text(type),
                                 ),

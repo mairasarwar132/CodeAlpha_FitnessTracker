@@ -74,9 +74,9 @@ class ActivityListTile extends StatelessWidget {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: color.withAlpha(25),
+                color: color.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: color.withAlpha(50)),
+                border: Border.all(color: color.withValues(alpha: 0.2)),
               ),
               child: Icon(icon, color: color, size: 22),
             ),
@@ -107,7 +107,7 @@ class ActivityListTile extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
               decoration: BoxDecoration(
-                color: color.withAlpha(20),
+                color: color.withValues(alpha: 0.08),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -123,7 +123,7 @@ class ActivityListTile extends StatelessWidget {
                   Text(
                     'kcal',
                     style: theme.textTheme.bodySmall?.copyWith(
-                      color: color.withAlpha(180),
+                      color: color.withValues(alpha: 0.7),
                       fontSize: 10,
                       fontWeight: FontWeight.w500,
                     ),

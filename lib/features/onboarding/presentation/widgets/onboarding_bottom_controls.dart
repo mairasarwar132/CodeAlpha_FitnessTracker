@@ -39,7 +39,7 @@ class OnboardingBottomControls extends StatelessWidget {
               count: pageCount,
               effect: ExpandingDotsEffect(
                 activeDotColor: theme.colorScheme.primary,
-                dotColor: theme.colorScheme.primary.withAlpha(60),
+                dotColor: theme.colorScheme.primary.withValues(alpha: 0.24),
                 dotHeight: 8,
                 dotWidth: 8,
                 expansionFactor: 3,

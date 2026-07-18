@@ -77,7 +77,7 @@ class _ErrorBody extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.error.withAlpha(25),
+                color: AppColors.error.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: const Icon(
@@ -134,12 +134,10 @@ class _DashboardBody extends StatelessWidget {
           foregroundColor: AppColors.surface,
           elevation: 0,
           scrolledUnderElevation: 4,
-          shadowColor: AppColors.primary.withAlpha(60),
+          shadowColor: AppColors.primary.withValues(alpha: 0.24),
           flexibleSpace: FlexibleSpaceBar(
             background: Container(
-              decoration: const BoxDecoration(
-                gradient: AppColors.gradientDark,
-              ),
+              decoration: const BoxDecoration(gradient: AppColors.gradientDark),
               child: SafeArea(
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(
@@ -194,10 +192,7 @@ class _DashboardBody extends StatelessWidget {
           sliver: SliverList(
             delegate: SliverChildListDelegate([
               // ── Stats Grid (responsive 2-column) ──
-              _StatsGrid(
-                stats: stats,
-                isSmallScreen: isSmallScreen,
-              ),
+              _StatsGrid(stats: stats, isSmallScreen: isSmallScreen),
 
               const SizedBox(height: 16),
 
@@ -233,7 +228,7 @@ class _DashboardBody extends StatelessWidget {
                       vertical: 4,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.accent.withAlpha(25),
+                      color: AppColors.accent.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
@@ -259,7 +254,7 @@ class _DashboardBody extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.primary.withAlpha(12),
+                        color: AppColors.primary.withValues(alpha: 0.05),
                         blurRadius: 20,
                         offset: const Offset(0, 4),
                       ),
@@ -275,10 +270,8 @@ class _DashboardBody extends StatelessWidget {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: stats.activities.length,
-                      separatorBuilder: (context, _) => const Divider(
-                        height: 1,
-                        color: AppColors.divider,
-                      ),
+                      separatorBuilder: (context, _) =>
+                          const Divider(height: 1, color: AppColors.divider),
                       itemBuilder: (context, index) =>
                           ActivityListTile(activity: stats.activities[index]),
                     ),
@@ -401,13 +394,13 @@ class _EmptyActivitiesState extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.accent.withAlpha(20),
+                color: AppColors.accent.withValues(alpha: 0.08),
                 shape: BoxShape.circle,
               ),
               child: Icon(
                 Icons.fitness_center_rounded,
                 size: 40,
-                color: AppColors.accent.withAlpha(150),
+                color: AppColors.accent.withValues(alpha: 0.6),
               ),
             ),
             const SizedBox(height: 16),

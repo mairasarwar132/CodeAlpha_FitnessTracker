@@ -71,7 +71,7 @@ class ProfileWizardScreen extends ConsumerWidget {
                         const SizedBox(height: 8),
                         LinearProgressIndicator(
                           value: (state.currentStep + 1) / 4,
-                          backgroundColor: theme.colorScheme.primary.withAlpha(40),
+                          backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.16),
                           valueColor: AlwaysStoppedAnimation<Color>(
                             theme.colorScheme.primary,
                           ),

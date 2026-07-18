@@ -22,11 +22,8 @@ class QuickActionsBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final isSmall = screenWidth < 360;
-    final buttonWidth = isSmall ? (screenWidth - 48) / 3 : 104.0;
-
-    final items = <_QuickActionMenuItem>[
+    // All 6 quick action items
+    final items = [
       _QuickActionMenuItem(
         label: AppStrings.dashboardAddActivity,
         icon: Icons.add_circle_rounded,
@@ -50,36 +47,44 @@ class QuickActionsBar extends StatelessWidget {
       _QuickActionMenuItem(
         label: 'Goals',
         icon: Icons.flag_rounded,
-        route: '/goals',
+        route: AppRoutes.goals,
       ),
       _QuickActionMenuItem(
         label: 'Settings',
         icon: Icons.settings_rounded,
-        route: '/settings',
+        route: AppRoutes.settings,
       ),
     ];
 
-    return Wrap(
-      spacing: 10,
-      runSpacing: 10,
-      children: [
-        for (final item in items)
-          SizedBox(
-            width: buttonWidth,
-            child: _QuickActionButton(
-              buttonKey: Key(switch (item.route) {
-                AppRoutes.history => 'btn_view_history',
-                AppRoutes.profile => 'btn_edit_profile',
-                AppRoutes.addActivity => 'btn_add_activity',
-                _ => 'btn_${item.label.toLowerCase().replaceAll(' ', '_')}',
-              }),
-              label: item.label,
-              icon: item.icon,
-              isPrimary: item.route == AppRoutes.addActivity,
-              onTap: () => context.push(item.route),
-            ),
-          ),
-      ],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final totalWidth = constraints.maxWidth;
+        // 3 columns on small screens, 6 on larger screens
+        final crossAxisCount = totalWidth < 600 ? 3 : 6;
+        final spacing = 8.0;
+        final totalSpacing = spacing * (crossAxisCount - 1);
+        final childWidth = (totalWidth - totalSpacing) / crossAxisCount;
+
+        return Wrap(
+          spacing: spacing,
+          runSpacing: spacing,
+          children: [
+            for (final item in items)
+              SizedBox(
+                width: childWidth,
+                child: _QuickActionButton(
+                  buttonKey: Key(
+                    'btn_${item.label.toLowerCase().replaceAll(' ', '_')}',
+                  ),
+                  label: item.label,
+                  icon: item.icon,
+                  isPrimary: item.route == AppRoutes.addActivity,
+                  onTap: () => context.push(item.route),
+                ),
+              ),
+          ],
+        );
+      },
     );
   }
 }
@@ -112,7 +117,7 @@ class _QuickActionButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
           boxShadow: [
             BoxShadow(
-              color: AppColors.accent.withAlpha(80),
+              color: AppColors.accent.withValues(alpha: 0.31),
               blurRadius: 12,
               offset: const Offset(0, 4),
             ),
@@ -131,7 +136,7 @@ class _QuickActionButton extends StatelessWidget {
                 children: [
                   const Icon(
                     Icons.add_circle_rounded,
-                    color: AppColors.primary,
+                    color: AppColors.surface,
                     size: 22,
                   ),
                   const SizedBox(height: 4),
@@ -142,7 +147,7 @@ class _QuickActionButton extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w700,
-                        color: AppColors.primary,
+                        color: AppColors.surface,
                       ),
                     ),
                   ),
@@ -161,7 +166,7 @@ class _QuickActionButton extends StatelessWidget {
         border: Border.all(color: AppColors.border),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withAlpha(10),
+            color: AppColors.primary.withValues(alpha: 0.04),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),

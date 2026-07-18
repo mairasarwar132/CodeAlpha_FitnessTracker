@@ -37,7 +37,7 @@ class ProfileManagementPage extends ConsumerWidget {
               ),
               const SizedBox(height: 12),
               DropdownButtonFormField<String>(
-                initialValue: state.gender,
+                initialValue: state.gender.isEmpty ? null : state.gender,
                 decoration: const InputDecoration(labelText: 'Gender'),
                 items: const ['Prefer not to say', 'Female', 'Male', 'Other']
                     .map(
@@ -79,7 +79,7 @@ class ProfileManagementPage extends ConsumerWidget {
               ),
               const SizedBox(height: 12),
               DropdownButtonFormField<String>(
-                initialValue: state.activityLevel,
+                initialValue: state.activityLevel.isEmpty ? null : state.activityLevel,
                 decoration: const InputDecoration(labelText: 'Activity Level'),
                 items: const ['Low', 'Moderate', 'High']
                     .map(

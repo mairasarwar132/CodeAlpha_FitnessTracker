@@ -32,9 +32,11 @@ class AppStrings {
   static const dashboardDistance = 'Distance';
   static const dashboardActiveMinutes = 'Active Min';
   static const dashboardDailyGoal = 'Daily Goal';
+  static const dashboardMotivationQuote = 'Every step makes you stronger.';
   static const dashboardTodaysActivities = "Today's Activities";
   static const dashboardNoActivities = 'No activities today';
-  static const dashboardNoActivitiesSubtitle = 'Tap + to log your first workout';
+  static const dashboardNoActivitiesSubtitle =
+      'Tap + to log your first workout';
   static const dashboardAddActivity = 'Add Activity';
   static const dashboardViewHistory = 'History';
   static const dashboardEditProfile = 'Profile';
